@@ -15,8 +15,8 @@ exports.listAll = (req, res) => {
 }
 
    exports.creatOne = (req, res) => {
-       const { descricao, tarefas } = req.body
-     const novoCategoria = new Categoria({ descricao, tarefas })  
+       const { descricao } = req.body
+     const novoCategoria = new Categoria({ descricao })  
      novoCategoria.save((error, categoria) => {
          if (error) {
              res.send(error)

@@ -1,70 +1,70 @@
 const mongoose = require('mongoose')
-const Usuario = mongoose.model('Usuarios')
+const Atividade = mongoose.model('Atividades')
 
 exports.listAll = (req, res) => {
-    Usuario.find({}, (error, usuario) => {
+    Atividade.find({}, (error, atividade) => {
         if(error) {
             res.send(error)
         }
         const response = {
-            message: 'Todos os Usuarios Encotrados com Sucesso!',
-            data: usuario
+            message: 'Todos os Atividades Encotrados com Sucesso!',
+            data: atividade
         }
         res.status(200).json(response)
     })
 }
 
    exports.creatOne = (req, res) => {
-       const { nome, email, telefone, listas } = req.body
-     const novoUsuario = new Usuario({ nome, email, telefone, listas })  
-     novoUsuario.save((error, usuario) => {
+       const { descricao } = req.body
+     const novoCategoria = new Atividade({ descricao })  
+     novoCategoria.save((error, atividade) => {
          if (error) {
              res.send(error)
          }
          const response = {
-             message: 'Usuario Cadastrado com Sucesso',
-             data: usuario
+             message: 'Atividade Cadastrado com Sucesso',
+             data: atividade
          }
          res.status(201).json(response)
      })
 }
 
 exports.showOne = (req, res) => {
-    Usuario.findById(req.params.id, (error, usuario) => {
+    Atividade.findById(req.params.id, (error, atividade) => {
         if (error) {
             res.send(error)
         }
         const response = {
-            message: 'Usuario encontrado com Sucesso!',
-            data: usuario
+            message: 'Atividade encontrado com Sucesso!',
+            data: atividade
         }
         res.status(200).json(response)
     })
 }
 
 exports.updateUser = (req, res) => {
-    Usuario.findOneAndUpdate({ _id: req.params.id }, req.body,
+    Atividade.findOneAndUpdate({ _id: req.params.id }, req.body,
         {new:true},
-        (error, usuario) => {
+        (error, atividade) => {
             if (error) {
                 res.send(error)
             }
             const response = {
-                message: 'Usuario Atualizado com Sucesso!', 
-                data: usuario
+                message: 'Atividade Atualizado com Sucesso!', 
+                data: atividade
             }
             res.status(200).json(response)
         })
 }
 
 exports.removerUser = (req, res) => {
-    Usuario.remove({ _id: req.params.id }, (error, usuario) => {
+    Atividade.remove({ _id: req.params.id }, (error, atividade) => {
         if (error) {
             res.send(error)
         }
         const response = {
-            message: 'Usuario Deletado com Sucesso!',
-            data: usuario
+            message: 'Atividade Deletado com Sucesso!',
+            data: atividade
         }
         res.status(200).json(response)
     })

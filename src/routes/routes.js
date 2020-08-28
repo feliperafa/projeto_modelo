@@ -2,6 +2,7 @@ module.exports = function (app) {
     const categorias = require('../controllers/categoriaControllers')
     const usuarios = require('../controllers/usuariocontroller')
     const tarefas = require('../controllers/tarefaControllers')
+    const atividades = require('../controllers/atividadesControllers')
 
     //================================Categorias================================
 
@@ -33,5 +34,15 @@ module.exports = function (app) {
     .get(usuarios.showOne)
     .put(usuarios.updateUser)
     .delete(usuarios.removerUser)
+
+    //================================Usuarios================================
+    app.route('/atividades')
+    .get(atividades.listAll)
+    .post(atividades.creatOne)
+
+    app.route('/usuarios/:id')
+    .get(atividades.showOne)
+    .put(atividades.updateUser)
+    .delete(atividades.removerUser)
 
 }

@@ -15,8 +15,8 @@ exports.listAll = (req, res) => {
 }
 
    exports.creatOne = (req, res) => {
-       const { titulo, descricao, usuario, categorias } = req.body
-     const novoTarefa = new Tarefa({ titulo, descricao, usuario, categorias })  
+       const { titulo, descricao, id_usuario, id_categoria, atividades } = req.body
+     const novoTarefa = new Tarefa({ titulo, descricao, id_usuario, id_categoria, atividades })  
      novoTarefa.save((error, tarefa) => {
          if (error) {
              res.send(error)

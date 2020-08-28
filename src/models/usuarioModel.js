@@ -17,6 +17,17 @@ const UsuarioSchema = new Schema({
     created_At: {
         type: Date,
         default: Date.now
-    }
+    },
+    listas:[
+        {
+            titulo: {
+            type: String,
+        },
+        dt_criacao: {
+            type: Date,
+            default: Date.now
+        }
+        }
+    ]
 })
 module.exports = mongoose.model('Usuarios', UsuarioSchema)

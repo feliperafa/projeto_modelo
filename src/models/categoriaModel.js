@@ -9,10 +9,6 @@ const CategoriaSchema = new Schema({
     created_At: {
         type: Date,
         default: Date.now
-    },
-    tarefas: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Tarefas'
     }
 })
 module.exports = mongoose.model('Categorias',CategoriaSchema)

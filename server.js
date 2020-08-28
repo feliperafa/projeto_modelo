@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const Usuario = require('./src/models/usuarioModel')
 const Tarefa = require('./src/models/tarefaModel')
 const Categoria = require('./src/models/categoriaModel')
+const Atividades = require('./src/models/atividade.Model')
 
 const app = express()
 
@@ -13,6 +14,8 @@ mongoose.connect('mongodb://localhost/todolistDB', {
     useNewUrlParser: true,
      useUnifiedTopology: true 
  })
+//============================================Conexão com o banco mongoDB============================================
+
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
