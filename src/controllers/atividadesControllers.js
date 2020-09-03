@@ -3,7 +3,7 @@ const Atividade = mongoose.model('Atividades')
 
 exports.listAll = (req, res) => {
     Atividade.find({}, (error, atividade) => {
-        if(error) {
+        if (error) {
             res.send(error)
         }
         const response = {
@@ -14,19 +14,19 @@ exports.listAll = (req, res) => {
     })
 }
 
-   exports.creatOne = (req, res) => {
-       const { descricao } = req.body
-     const novoCategoria = new Atividade({ descricao })  
-     novoCategoria.save((error, atividade) => {
-         if (error) {
-             res.send(error)
-         }
-         const response = {
-             message: 'Atividade Cadastrado com Sucesso',
-             data: atividade
-         }
-         res.status(201).json(response)
-     })
+exports.creatOne = (req, res) => {
+    const { descricao } = req.body
+    const novoCategoria = new Atividade({ descricao })
+    novoCategoria.save((error, atividade) => {
+        if (error) {
+            res.send(error)
+        }
+        const response = {
+            message: 'Atividade Cadastrado com Sucesso',
+            data: atividade
+        }
+        res.status(201).json(response)
+    })
 }
 
 exports.showOne = (req, res) => {
@@ -44,13 +44,13 @@ exports.showOne = (req, res) => {
 
 exports.updateUser = (req, res) => {
     Atividade.findOneAndUpdate({ _id: req.params.id }, req.body,
-        {new:true},
+        { new: true },
         (error, atividade) => {
             if (error) {
                 res.send(error)
             }
             const response = {
-                message: 'Atividade Atualizado com Sucesso!', 
+                message: 'Atividade Atualizado com Sucesso!',
                 data: atividade
             }
             res.status(200).json(response)

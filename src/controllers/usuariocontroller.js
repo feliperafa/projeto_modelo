@@ -3,7 +3,7 @@ const Usuario = mongoose.model('Usuarios')
 
 exports.listAll = (req, res) => {
     Usuario.find({}, (error, usuario) => {
-        if(error) {
+        if (error) {
             res.send(error)
         }
         const response = {
@@ -14,19 +14,19 @@ exports.listAll = (req, res) => {
     })
 }
 
-   exports.creatOne = (req, res) => {
-       const { nome, email, telefone, listas } = req.body
-     const novoUsuario = new Usuario({ nome, email, telefone, listas })  
-     novoUsuario.save((error, usuario) => {
-         if (error) {
-             res.send(error)
-         }
-         const response = {
-             message: 'Usuario Cadastrado com Sucesso',
-             data: usuario
-         }
-         res.status(201).json(response)
-     })
+exports.creatOne = (req, res) => {
+    const { nome, email, telefone, listas } = req.body
+    const novoUsuario = new Usuario({ nome, email, telefone, listas })
+    novoUsuario.save((error, usuario) => {
+        if (error) {
+            res.send(error)
+        }
+        const response = {
+            message: 'Usuario Cadastrado com Sucesso',
+            data: usuario
+        }
+        res.status(201).json(response)
+    })
 }
 
 exports.showOne = (req, res) => {
@@ -44,13 +44,13 @@ exports.showOne = (req, res) => {
 
 exports.updateUser = (req, res) => {
     Usuario.findOneAndUpdate({ _id: req.params.id }, req.body,
-        {new:true},
+        { new: true },
         (error, usuario) => {
             if (error) {
                 res.send(error)
             }
             const response = {
-                message: 'Usuario Atualizado com Sucesso!', 
+                message: 'Usuario Atualizado com Sucesso!',
                 data: usuario
             }
             res.status(200).json(response)

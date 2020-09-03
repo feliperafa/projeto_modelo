@@ -22,10 +22,10 @@ const TarefaSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Categorias'
     },
-    atividades:[{
+    atividades: [{
         id_atividade: {
             Type: mongoose.Schema.Types.ObjectId
         }
     }]
 })
-module.exports = mongoose.model('Tarefas',TarefaSchema)
+module.exports = mongoose.model('Tarefas', TarefaSchema)

@@ -18,15 +18,15 @@ const UsuarioSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    listas:[
+    listas: [
         {
             titulo: {
-            type: String,
-        },
-        dt_criacao: {
-            type: Date,
-            default: Date.now
-        }
+                type: String,
+            },
+            dt_criacao: {
+                type: Date,
+                default: Date.now
+            }
         }
     ]
 })

@@ -3,7 +3,7 @@ const Tarefa = mongoose.model('Tarefas')
 
 exports.listAll = (req, res) => {
     Tarefa.find({}, (error, tarefa) => {
-        if(error) {
+        if (error) {
             res.send(error)
         }
         const response = {
@@ -14,19 +14,19 @@ exports.listAll = (req, res) => {
     })
 }
 
-   exports.creatOne = (req, res) => {
-       const { titulo, descricao, id_usuario, id_categoria, atividades } = req.body
-     const novoTarefa = new Tarefa({ titulo, descricao, id_usuario, id_categoria, atividades })  
-     novoTarefa.save((error, tarefa) => {
-         if (error) {
-             res.send(error)
-         }
-         const response = {
-             message: 'Tarefa Cadastrado com Sucesso',
-             data: tarefa
-         }
-         res.status(201).json(response)
-     })
+exports.creatOne = (req, res) => {
+    const { titulo, descricao, id_usuario, id_categoria, atividades } = req.body
+    const novoTarefa = new Tarefa({ titulo, descricao, id_usuario, id_categoria, atividades })
+    novoTarefa.save((error, tarefa) => {
+        if (error) {
+            res.send(error)
+        }
+        const response = {
+            message: 'Tarefa Cadastrado com Sucesso',
+            data: tarefa
+        }
+        res.status(201).json(response)
+    })
 }
 
 exports.showOne = (req, res) => {
@@ -44,13 +44,13 @@ exports.showOne = (req, res) => {
 
 exports.updateUser = (req, res) => {
     Tarefa.findOneAndUpdate({ _id: req.params.id }, req.body,
-        {new:true},
+        { new: true },
         (error, tarefa) => {
             if (error) {
                 res.send(error)
             }
             const response = {
-                message: 'Tarefa Atualizado com Sucesso!', 
+                message: 'Tarefa Atualizado com Sucesso!',
                 data: tarefa
             }
             res.status(200).json(response)

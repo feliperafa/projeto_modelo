@@ -19,4 +19,4 @@ const AtividadeSchema = new Schema({
         default: Date.now
     }
 })
-module.exports = mongoose.model('Atividades',AtividadeSchema)
+module.exports = mongoose.model('Atividades', AtividadeSchema)
